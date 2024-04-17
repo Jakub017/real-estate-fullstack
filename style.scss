@@ -13,16 +13,14 @@ span {
 
 
 // Variables starts
-
 $main-color: #FC6600;
 $gray: #66686F;
+$dark: #111;
 $box-shadow: 0 0 10px rgba(0, 0, 0, 0.15);
-
 // Variables ends
 
 
 // Navigation styles starts
-
 .nav {
     width: 100%;
     height: 9rem;
@@ -32,7 +30,7 @@ $box-shadow: 0 0 10px rgba(0, 0, 0, 0.15);
     justify-content: space-between;
     align-items: center;
     z-index: 1;
-    background-color: #332E2B;
+    background-color: transparent;
 
     &__logo {
         width: 150px;
@@ -40,6 +38,16 @@ $box-shadow: 0 0 10px rgba(0, 0, 0, 0.15);
 
     &__hamburger {
         width: 48px;
+    }
+
+    &__wrapper {
+        width: 100%;
+        max-width: 1366px;
+        display: flex;
+        justify-content: space-between;
+        background-color: transparent;
+        align-items: center;
+        margin: 0 auto;
     }
 
     &__menu {
@@ -91,7 +99,6 @@ $box-shadow: 0 0 10px rgba(0, 0, 0, 0.15);
 
 
 // Hero section styles starts
-
 .hero {
     width: 100%;
     height: 95vh;
@@ -99,12 +106,19 @@ $box-shadow: 0 0 10px rgba(0, 0, 0, 0.15);
 
     &__text {
         color: #fff;
-        background-color: #332E2B;
+        background-color: $dark;
         padding: calc(80px + 2rem) 2rem 2rem 2rem;
+        height: 50vh;
+        max-height: 450px;
+    }
+
+    &__text-wrapper {
         display: flex;
         flex-direction: column;
         gap: 1.5rem;
-        height: 50vh;
+        width: 100%;
+        max-width: 1300px;
+        margin: 0 auto;
     }
 
     &__heading {
@@ -117,6 +131,7 @@ $box-shadow: 0 0 10px rgba(0, 0, 0, 0.15);
 
     &__description {
         font-size: 1.6rem;
+        max-width: 400px;
     }
 
     &__buttons {
@@ -136,22 +151,67 @@ $box-shadow: 0 0 10px rgba(0, 0, 0, 0.15);
         border: none;
         outline: none;
         border-radius: 0.5rem;
+        cursor: pointer;
+        transition: 0.2s ease-in-out;
 
         &--white {
             background-color: #fff;
             color: $main-color;
+        }
+
+        &:hover {
+            background-color: darken($main-color, 5%);
+        }
+
+        &--white:hover {
+            background-color: darken(#fff, 10%);
         }
     }
 
     &__image-wrapper {
         width: 100%;
         height: 30vh;
-
     }
 
     &__image {
         width: 100%;
         object-fit: cover;
+        height: 100%;
+    }
+
+    &__switcher {
+        position: absolute;
+        background-color: #fff;
+        left: 0;
+        height: 50px;
+        top: -50px;
+        justify-content: center;
+        align-items: center;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border-top-left-radius: 1rem;
+        border-top-right-radius: 1rem;
+    }
+
+    &__switch {
+        padding: 1rem 2rem;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-size: 1.4rem;
+        background-color: #32383C;
+        height: 100%;
+        overflow: hidden;
+        font-weight: bold;
+        color: #fff;
+        cursor: pointer;
+
+        &--active {
+            background-color: #fff;
+            color: #000;
+            cursor: default;
+        }
     }
 
     &__bar {
@@ -161,9 +221,11 @@ $box-shadow: 0 0 10px rgba(0, 0, 0, 0.15);
         background-color: #fff;
         box-shadow: $box-shadow;
         width: 95%;
-        bottom: -3rem;
+        bottom: -1rem;
         border-radius: 1rem;
+        border-top-left-radius: 0;
         padding: 2rem;
+        max-width: 1366px;
     }
 
     &__search {
@@ -237,6 +299,12 @@ $box-shadow: 0 0 10px rgba(0, 0, 0, 0.15);
         font-size: 1.6rem;
         color: #fff;
         border-radius: 0.5rem;
+        cursor: pointer;
+        transition: 0.2s ease-in-out;
+
+        &:hover {
+            background-color: darken($main-color, 5%);
+        }
     }
 }
 
@@ -244,9 +312,212 @@ $box-shadow: 0 0 10px rgba(0, 0, 0, 0.15);
 
 
 // About section styles starts
-
 .about {
     height: 100vh;
 }
 
 // About section styles ends
+
+
+
+// Media queries starts
+@media(min-width: 768px) {
+    .hero {
+        &__text {
+            padding-top: calc(9rem + 4rem);
+        }
+
+        &__heading {
+            font-size: 5.2rem;
+            max-width: 400px;
+        }
+
+        &__description {
+            font-size: 1.8rem;
+        }
+
+        &__button {
+            font-size: 1.8rem;
+        }
+
+        &__bar {
+            bottom: 8.5rem;
+        }
+
+        &__search {
+            flex-direction: row;
+            flex-wrap: nowrap;
+        }
+
+        &__switch {
+            font-size: 1.6rem;
+        }
+
+        &__input-group {
+
+            &:first-child {
+                width: 300px;
+            }
+
+            &:first-child::after {
+                width: 1px;
+                height: 100%;
+                bottom: auto;
+                left: auto;
+                right: -0.8rem;
+            }
+        }
+
+        &__search-button {
+            width: 150px;
+        }
+    }
+}
+
+@media(min-width: 1024px) {
+    .nav {
+        &__wrapper {
+            justify-content: flex-start;
+            gap: 3rem;
+        }
+
+        &__logo {
+            width: 180px;
+        }
+
+        &__hamburger {
+            display: none;
+        }
+
+        &__menu {
+            position: static;
+            background-color: transparent;
+            flex-direction: row;
+            gap: 2rem;
+            color: #fff;
+            height: 100%;
+            width: fit-content;
+            align-items: flex-end;
+            padding: 0;
+        }
+
+        &__link {
+            color: #fff;
+            font-weight: 400;
+            display: block;
+            margin-top: 1.5rem;
+            position: relative;
+
+            &::after {
+                content: "";
+                position: absolute;
+                width: 0;
+                height: 2px;
+                background-color: #fff;
+                bottom: -0.5rem;
+                opacity: 1;
+                left: 50%;
+                transform: translateX(-50%);
+                transition: width 0.3s;
+            }
+
+            &:hover::after {
+                width: 100%;
+            }
+        }
+
+        &__menu-logo-wrapper {
+            display: none;
+        }
+    }
+
+    .hero {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: nowrap;
+        height: 90vh;
+
+        &__text {
+            width: 50%;
+            height: 100%;
+            max-height: none;
+        }
+
+        &__image-wrapper {
+            width: 50%;
+            height: 100%;
+        }
+
+        &__switch {
+            font-size: 1.8rem;
+        }
+
+        &__search-button {
+            font-size: 1.8rem;
+            padding: 1.5rem 2.5rem;
+        }
+
+        &__bar {
+            bottom: -4rem;
+        }
+
+        &__input {
+            font-size: 1.8rem;
+            padding-left: 4rem
+        }
+
+        &__icon {
+            width: 30px;
+        }
+
+        &__text-container {
+            width: 95%;
+            max-width: 1366px;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            height: 300px;
+        }
+
+        &__text-wrapper {
+            gap: 2rem;
+            margin-left: 0;
+        }
+
+        &__heading {
+            font-size: 5.6rem;
+            max-width: 500px;
+        }
+
+        &__description {
+            font-size: 2rem;
+            max-width: 500px;
+            line-height: 1.6;
+        }
+
+        &__button {
+            font-size: 2rem;
+            width: 150px;
+            padding: 1.5rem 1rem;
+        }
+
+        &__search-button {
+            font-size: 2rem;
+        }
+    }
+}
+
+@media(min-width: 1280px) {
+    .nav {
+        &__wrapper {
+            gap: 8rem;
+        }
+
+        &__menu {
+            gap: 4rem;
+        }
+    }
+}
+
+// Media queries ends

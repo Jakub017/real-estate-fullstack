@@ -15,33 +15,47 @@
 
 <body>
     <nav class="nav">
-        <img src="img/logo-white.png" alt="" class="nav__logo">
-        <img src="img/hamburger-icon.png" alt="" class="nav__hamburger">
-        <ul class="nav__menu">
-            <div class="nav__menu-logo-wrapper">
-                <img src="img/logo-black.png" alt="" class="nav__menu-logo">
-            </div>
-            <li class="nav__item"><a href="#" class="nav__link">Home</a></li>
-            <li class="nav__item"><a href="#" class="nav__link">About</a></li>
-            <li class="nav__item"><a href="#" class="nav__link">Offers</a></li>
-            <li class="nav__item"><a href="#" class="nav__link">Contact</a></li>
-        </ul>
+        <div class="nav__wrapper">
+            <a href="#" class="nav__logo-link">
+                <img src="img/logo-white.png" alt="" class="nav__logo">
+            </a>
+            <img src="img/hamburger-icon.png" alt="" class="nav__hamburger">
+            <ul class="nav__menu">
+                <div class="nav__menu-logo-wrapper">
+                    <img src="img/logo-black.png" alt="" class="nav__menu-logo">
+                </div>
+                <li class="nav__item"><a href="#" class="nav__link">Home</a></li>
+                <li class="nav__item"><a href="#" class="nav__link">About</a></li>
+                <li class="nav__item"><a href="#" class="nav__link">Offers</a></li>
+                <li class="nav__item"><a href="#" class="nav__link">Contact</a></li>
+            </ul>
+        </div>
     </nav>
     <section class="hero">
         <div class="hero__text">
-            <h1 class="hero__heading">Find your <span class="hero__orange">perfect space.</span></h1>
-            <p class="hero__description">Browse the best properties for sale and rent across our extensive network. Find
-                your dream home or ideal investment today!</p>
-            <div class="hero__buttons">
-                <button class="hero__button">About</button>
-                <button class="hero__button hero__button--white">Contact</button>
+            <div class="hero__text-container">
+                <div class="hero__text-wrapper">
+                    <h1 class="hero__heading">Find your <span class="hero__orange">perfect space.</span></h1>
+                    <p class="hero__description">Browse the best properties for sale and rent across our extensive
+                        network.
+                        Find
+                        your dream home or ideal investment today!</p>
+                    <div class="hero__buttons">
+                        <button class="hero__button">About</button>
+                        <button class="hero__button hero__button--white">Contact</button>
+                    </div>
+                </div>
             </div>
         </div>
         <div class="hero__image-wrapper">
             <img src="img/main.jpg" alt="" class="hero__image">
             <div class="hero__bar">
+                <div class="hero__switcher">
+                    <span class="hero__switch hero__switch--active">Sell</span>
+                    <span class="hero__switch">Rent</span>
+                </div>
                 <form action="" class="hero__search">
-                    <div class="hero__input-group">
+                    <div class="hero__input-group hero__input-group--select">
                         <img src="img/house-icon.png" class="hero__icon">
                         <select name="" id="" class="hero__input hero__input--select">
                             <option value="" class="hero__option">Property type</option>
@@ -51,7 +65,7 @@
                     </div>
                     <div class="hero__input-group">
                         <img src="img/search-icon.png" class="hero__icon">
-                        <input type="text" class="hero__input" placeholder="Search by location...">
+                        <input type="text" class="hero__input" placeholder="Search by location or property name...">
                     </div>
 
                     <button class="hero__search-button hero__search-button--mobile">Search</button>
